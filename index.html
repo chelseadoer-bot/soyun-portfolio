@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>심소연 · Service Planning Portfolio</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --green:#00DC64; --green-d:#00B551; --green-ink:#00913F;
+    --ink:#15151A; --ink2:#4A4A52; --mute:#6E6A76;
+    --paper:#FFFFFF; --wash:#F6F7F9; --line:#E9EAED; --line2:#F1F2F4;
+    --yellow:#FFE94D; --coral:#FF4D6D;
+    --shadow-sm:0 1px 2px rgba(21,21,26,.04);
+    --shadow:0 4px 14px rgba(21,21,26,.06), 0 18px 40px rgba(21,21,26,.06);
+    --shadow-green:0 10px 30px rgba(0,220,100,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;color:var(--ink);background:var(--paper);
+    line-height:1.6;letter-spacing:-.014em;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--green);color:#fff}
+
+  /* ===== NAV ===== */
+  .nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);display:flex;align-items:center;height:64px;padding:0 30px}
+  .nav .brand{display:flex;align-items:center;gap:11px;font-size:17px;font-weight:800;letter-spacing:-.03em}
+  .nav .brand .mk{width:26px;height:26px;border-radius:8px;background:var(--green);display:flex;align-items:center;
+    justify-content:center;color:#fff;font-size:15px;font-weight:900;transform:rotate(-4deg)}
+  .nav .brand .en{font-size:10.5px;font-weight:700;letter-spacing:.13em;color:var(--mute);text-transform:uppercase}
+  .nav .links{margin-left:auto;display:flex;gap:6px;align-items:center}
+  .nav .links a{font-size:14px;font-weight:600;color:var(--ink2);text-decoration:none;padding:9px 14px;border-radius:9px;transition:.15s}
+  .nav .links a:hover{background:var(--wash);color:var(--ink)}
+  .nav .links a.hire{background:var(--green);color:#fff;font-weight:700}
+  .nav .links a.hire:hover{background:var(--green-d)}
+
+  /* ===== HERO ===== */
+  .hero{padding:74px 30px 60px;max-width:1140px;margin:0 auto}
+  .hero .ey{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.02em;
+    color:var(--green-ink);background:#E6FBF0;border:1px solid #BFF3D8;padding:7px 14px;border-radius:999px}
+  .hero .ey .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-size:52px;font-weight:900;letter-spacing:-.045em;line-height:1.1;margin:22px 0 0}
+  .hero h1 .hl{position:relative;white-space:nowrap;z-index:0}
+  .hero h1 .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:6px;height:36%;
+    background:var(--green);z-index:-1;opacity:.9;transform:skewX(-6deg)}
+  .hero h1 .hl.y::after{background:var(--yellow)}
+  .hero p.lead{font-size:18px;color:var(--ink2);margin-top:24px;max-width:620px;line-height:1.68;font-weight:500}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .hero .meta .chip{font-size:13px;font-weight:600;color:var(--ink2);background:var(--wash);
+    border:1px solid var(--line);border-radius:999px;padding:8px 15px}
+  .hero .meta .chip b{color:var(--ink);font-weight:800}
+  /* ===== HERO 2-COLUMN + PROFILE CARD (LinkedIn-style) ===== */
+  .hero .hwrap{display:grid;grid-template-columns:1fr 320px;gap:46px;align-items:center}
+  .hero .hmain{min-width:0}
+  .pcard{background:var(--paper);border:1.5px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:28px 22px 22px;text-align:center}
+  .pcard .pavatar{position:relative;width:120px;height:120px;margin:0 auto 16px;border-radius:50%;overflow:hidden;
+    background:linear-gradient(150deg,#E6FBF0,#C6EFD8);border:1px solid var(--line);box-shadow:0 6px 18px rgba(21,21,26,.12)}
+  .pcard .pavatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2}
+  .pcard .pavatar .pmono{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;
+    font-size:52px;font-weight:900;color:#00913F;transform:rotate(-4deg);letter-spacing:-.04em}
+  .pcard .pname{font-size:22px;font-weight:900;letter-spacing:-.03em;display:flex;align-items:baseline;gap:8px;justify-content:center}
+  .pcard .pname .pen{font-size:12px;font-weight:700;color:var(--mute);letter-spacing:.04em}
+  .pcard .prole{font-size:13px;font-weight:700;color:var(--green-ink);margin-top:5px}
+  .pcard .pfacts{list-style:none;margin:16px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
+  .pcard .pfacts li{font-size:13px;color:var(--ink2);font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;padding:5px 0;line-height:1.4}
+  .pcard .pfacts .pi{width:18px;text-align:center;flex:none;font-size:13px}
+  .pcard .pcta{display:flex;gap:8px;margin-top:16px}
+  .pcard .pbtn{flex:1;text-align:center;font-size:13px;font-weight:800;text-decoration:none;padding:11px 8px;border-radius:10px;transition:.15s}
+  .pcard .pbtn.primary{background:var(--green);color:#fff}
+  .pcard .pbtn.primary:hover{background:var(--green-d)}
+  .pcard .pbtn.ghost{background:var(--wash);color:var(--ink2);border:1px solid var(--line)}
+  .pcard .pbtn.ghost:hover{background:#EEF0F3;border-color:var(--green)}
+  @media (max-width:900px){.hero .hwrap{grid-template-columns:1fr;gap:30px}.pcard{max-width:340px}}
+
+  /* ===== SECTION HEAD ===== */
+  .sec{max-width:1140px;margin:0 auto;padding:56px 30px}
+  .sechd{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px}
+  .sechd .l .k{font-size:12.5px;font-weight:800;letter-spacing:.03em;color:var(--green-ink);margin-bottom:9px;display:flex;align-items:center;gap:8px}
+  .sechd .l .k::before{content:"";width:20px;height:3px;background:var(--green);border-radius:2px}
+  .sechd .l h2{font-size:30px;font-weight:900;letter-spacing:-.035em;line-height:1.15}
+  .sechd .l p{font-size:15px;color:var(--ink2);margin-top:11px;max-width:640px;line-height:1.66}
+  .sechd .cnt{font-size:13px;font-weight:700;color:var(--mute);white-space:nowrap;padding-bottom:4px}
+
+  /* ===== CASE GRID (webtoon thumbnail style) ===== */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{position:relative;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+    background:var(--paper);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow-sm);transition:transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s}
+  .card:hover{transform:translateY(-7px);box-shadow:var(--shadow-green);border-color:var(--green)}
+  .card .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#EEF0F3}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .35s ease}
+  .card:hover .thumb img{transform:scale(1.05)}
+  .card .thumb.grad{display:flex;align-items:center;justify-content:center}
+  .card .thumb.grad.ai{background:linear-gradient(135deg,#00DC64,#00B551 60%,#059B6E)}
+  .card .thumb.grad.gl{background:linear-gradient(135deg,#FF4D6D,#FF7A54)}
+  .card .thumb.grad .ph{color:#fff;text-align:center;padding:0 22px}
+  .card .thumb.grad .ph .ic{font-size:30px;margin-bottom:8px;display:block}
+  .card .thumb.grad .ph .t{font-size:15px;font-weight:800;line-height:1.4}
+  /* swap-ready thumbnail: real image layered over a branded placeholder (drop img/thumb-*.jpg to fill) */
+  .card .thumb .thumbimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2;transition:transform .35s ease}
+  .card:hover .thumb .thumbimg{transform:scale(1.05)}
+  .card .thumb .phold{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 22px;color:#fff}
+  .card .thumb .phold .ic{font-size:30px;margin-bottom:8px;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.18))}
+  .card .thumb .phold .t{font-size:15px;font-weight:800;line-height:1.4;text-shadow:0 1px 6px rgba(0,0,0,.14)}
+  .phold.p-ai{background:linear-gradient(135deg,#00DC64,#00B551 60%,#059B6E)}
+  .phold.p-spao{background:linear-gradient(135deg,#00C2A8,#00A65A)}
+  .phold.p-pavilion{background:linear-gradient(135deg,#37CC7A,#00994B)}
+  .phold.p-gl{background:linear-gradient(135deg,#FF4D6D,#FF7A54)}
+  .phold.p-girog{background:linear-gradient(135deg,#5AD98A,#12B866)}
+  .phold.p-scoring{background:linear-gradient(135deg,#00B551,#00753A)}
+  /* EP badge */
+  .card .ep{position:absolute;top:12px;left:12px;font-size:11px;font-weight:900;letter-spacing:.06em;
+    color:var(--ink);background:#fff;border-radius:7px;padding:5px 9px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+  .card .up{position:absolute;top:12px;right:12px;font-size:10.5px;font-weight:900;letter-spacing:.05em;
+    color:#fff;background:var(--coral);border-radius:6px;padding:4px 8px}
+  .card .up.done{background:var(--green)}
+  .card .bd{padding:18px 19px 20px;display:flex;flex-direction:column;flex:1}
+  .card .genre{font-size:11.5px;font-weight:700;color:var(--green-ink);letter-spacing:.01em;margin-bottom:7px}
+  .card h3{font-size:18px;font-weight:800;letter-spacing:-.028em;line-height:1.34}
+  .card .org{font-size:12.5px;color:var(--mute);font-weight:600;margin-top:6px}
+  .card .desc{font-size:13.5px;color:var(--ink2);line-height:1.62;margin-top:11px;flex:1}
+  /* webtoon-style meta row (star / views) */
+  .card .metrow{display:flex;align-items:center;gap:14px;margin-top:15px;padding-top:14px;border-top:1px solid var(--line2)}
+  .card .metrow .m{display:flex;flex-direction:column;gap:2px}
+  .card .metrow .m .mv{font-size:15px;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1}
+  .card .metrow .m .mv .u{color:var(--green-ink)}
+  .card .metrow .m .mk{font-size:10px;color:var(--mute);font-weight:600}
+  .card .go{margin-left:auto;font-size:20px;color:var(--green);font-weight:900;transition:transform .2s}
+  .card:hover .go{transform:translateX(3px)}
+  .card .go.soon{color:var(--mute);font-size:11px;font-weight:700;align-self:flex-end}
+
+  /* ===== APPROACH ===== */
+  .approach{background:var(--wash);border-top:1px solid var(--line)}
+  .credlist{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  .cred{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;transition:.18s}
+  .cred:hover{border-color:var(--green);box-shadow:var(--shadow)}
+  .cred .cico{width:38px;height:38px;border-radius:11px;background:#E6FBF0;color:var(--green-ink);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
+  .cred .corg{font-size:11.5px;color:var(--green-ink);font-weight:800;margin-bottom:4px;letter-spacing:.01em}
+  .cred .ctitle{font-size:15px;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+  .cred .cdesc{font-size:12.5px;color:var(--ink2);margin-top:6px;line-height:1.55;font-weight:500}
+  @media(max-width:640px){.credlist{grid-template-columns:1fr}}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--ink);color:#B8B8C0;padding:44px 30px;text-align:center}
+  footer .fbrand{font-size:19px;font-weight:900;color:#fff;letter-spacing:-.03em}
+  footer .fbrand .mk{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--green);
+    color:#fff;align-items:center;justify-content:center;font-size:14px;font-weight:900;transform:rotate(-4deg);vertical-align:middle;margin-right:7px}
+  footer p{font-size:13px;margin-top:12px;color:#9A9AA4}
+  footer .cta{margin-top:20px}
+  footer .cta a{display:inline-block;background:var(--green);color:#fff;font-size:14px;font-weight:800;
+    text-decoration:none;padding:12px 26px;border-radius:10px;transition:.15s}
+  footer .cta a:hover{background:var(--green-d)}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:repeat(2,1fr)}.fit3{grid-template-columns:1fr}
+    .hero h1{font-size:38px}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr}.hero h1{font-size:32px}
+    .nav .links a:not(.hire){display:none}
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="brand" style="text-decoration:none;color:inherit">
+      <span class="mk">심</span>심소연 <span class="en">Soyun Shim</span>
+    </a>
+    <div class="links">
+      <a href="#cases">케이스</a>
+      <a href="#credentials">이력</a>
+      <a href="https://www.linkedin.com/in/soyun-shim-27892a208/" target="_blank" rel="noopener" class="hire">LinkedIn</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hwrap">
+      <div class="hmain">
+        <span class="ey"><span class="dot"></span>Service Planning · Product Manager</span>
+        <h1>유저를 데이터로 읽고,<br><span class="hl">서비스로 그려내는</span> 기획자</h1>
+        <p class="lead">상위 기획(What·Why)부터 상세 기획(IA·화면 설계), 협업 실행까지 — 프로덕트의 처음부터 끝까지를 그려온 서비스 기획자입니다. 각 케이스를 눌러 문제부터 성과까지의 이야기를 확인하세요.</p>
+        <div class="meta">
+          <span class="chip"><b>자사몰</b> MAU +15% · CTR +33%</span>
+          <span class="chip"><b>글로벌</b> 3개국 판매·현지화</span>
+          <span class="chip"><b>창업</b> 리텐션 66.2%</span>
+          <span class="chip"><b>전용관</b> 체류 +323%</span>
+        </div>
+      </div>
+      <aside class="pcard">
+        <div class="pavatar">
+          <img src="img/profile.jpg" alt="심소연 프로필 사진" loading="lazy"
+               onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.src.slice(0,-4)+'.png'}">
+          <span class="pmono">심</span>
+        </div>
+        <div class="pbody">
+          <div class="pname">심소연<span class="pen">Soyun Shim</span></div>
+          <div class="prole">서비스 기획자 · Product Manager</div>
+          <ul class="pfacts">
+            <li><span class="pi">&#127919;</span>서비스 기획 · AI 커머스 · 글로벌 판매</li>
+            <li><span class="pi">&#9993;</span>chelsea8218@naver.com</li>
+          </ul>
+          <div class="pcta">
+            <a href="https://www.linkedin.com/in/soyun-shim-27892a208/" target="_blank" rel="noopener" class="pbtn primary">LinkedIn</a>
+            <a href="#cases" class="pbtn ghost">케이스 보기</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <section class="sec" id="cases">
+    <div class="sechd">
+      <div class="l">
+        <div class="k">SELECTED CASES</div>
+        <h2>서비스 기획 케이스</h2>
+        <p>서비스 기획·PM 직무 적합도가 높은 순서입니다. 각 카드는 <b>문제 → 가설 → 검증 → 설계 → 성과</b>의 흐름으로 이어집니다.</p>
+      </div>
+      <div class="cnt">총 6편</div>
+    </div>
+
+    <div class="grid">
+
+      <!-- EP1 AI Agent -->
+      <a class="card" href="ai-agent.html">
+        <div class="thumb">
+          <img class="thumbimg" src="img/thumb-ai-agent.jpg" alt="육아 AI 상품 큐레이션 아이그라운드" loading="lazy" onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.src.slice(0,-4)+'.png'}">
+          <div class="phold p-ai"><span class="ic">&#128172;</span><span class="t">육아 AI<br>상품 큐레이션</span></div>
+          <span class="ep">EP.01</span><span class="up">진행중</span>
+        </div>
+        <div class="bd">
+          <div class="genre">AI 검색 서비스 기획 · 리서치·UX</div>
+          <h3>육아 상품을 찾아주는 AI 검색 서비스</h3>
+          <div class="org">이랜드 그룹 온라인 · 키디키디 · 2025.08–현재</div>
+          <div class="desc">직접 검색해도 안 나오던 키디키디 통합검색을, VOC 3만 건 리서치로 ‘진짜 리뷰로 확신을 주는’ 대화형 AI 검색 서비스(아이그라운드)로 재설계.</div>
+          <div class="metrow">
+            <div class="m"><div class="mv"><span class="u">VOC 3만</span></div><div class="mk">리서치 근거</div></div>
+            <div class="m"><div class="mv"><span class="u">8.5점</span></div><div class="mk">MD 만족도</div></div>
+            <span class="go">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- EP2 SPAO -->
+      <a class="card" href="spao.html">
+        <div class="thumb">
+          <img class="thumbimg" src="img/thumb-spao.jpg" alt="자사몰 UX 개편" loading="lazy" onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.src.slice(0,-4)+'.png'}">
+          <div class="phold p-spao"><span class="ic">&#128717;</span><span class="t">자사몰<br>UX 개편</span></div>
+          <span class="ep">EP.02</span><span class="up done">BEST</span>
+        </div>
+        <div class="bd">
+          <div class="genre">IA·화면 재설계 · 고객 데이터</div>
+          <h3>구매 데이터로 타깃을 뒤집은 자사몰 UX 개편</h3>
+          <div class="org">이랜드인재원 전략기획본부 · 스파오 · 2025</div>
+          <div class="desc">‘콜라보 사러 온 1020’이라는 통념을 데이터로 뒤집고, 실수익 3040 여성 기준으로 IA·구매 여정·화면을 재설계.</div>
+          <div class="metrow">
+            <div class="m"><div class="mv"><span class="u">+15%</span></div><div class="mk">MAU</div></div>
+            <div class="m"><div class="mv"><span class="u">+33%</span></div><div class="mk">CTR</div></div>
+            <span class="go">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- EP3 Pavilion -->
+      <a class="card" href="pavilion.html">
+        <div class="thumb">
+          <img class="thumbimg" src="img/thumb-pavilion.jpg" alt="브랜드 전용관 설계" loading="lazy" onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.src.slice(0,-4)+'.png'}">
+          <div class="phold p-pavilion"><span class="ic">&#127978;</span><span class="t">브랜드<br>전용관 설계</span></div>
+          <span class="ep">EP.03</span><span class="up done">BEST</span>
+        </div>
+        <div class="bd">
+          <div class="genre">UI·구조 설계 · 서비스 기획</div>
+          <h3>탐색 패턴을 서비스로 — 브랜드 전용관 설계</h3>
+          <div class="org">이랜드 그룹 온라인 · 키디키디 · 2025</div>
+          <div class="desc">‘유저는 브랜드 단위로 탐색한다’는 검색 패턴을 근거로 전용관 구조·탐색 UI·등급별 입점 정책을 설계.</div>
+          <div class="metrow">
+            <div class="m"><div class="mv"><span class="u">+323%</span></div><div class="mk">체류</div></div>
+            <div class="m"><div class="mv"><span class="u">+344%</span></div><div class="mk">스크랩</div></div>
+            <span class="go">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- EP4 fastar global -->
+      <a class="card" href="fastar.html">
+        <div class="thumb">
+          <img class="thumbimg" src="img/thumb-fastar.jpg" alt="글로벌 판매·현지화" loading="lazy" onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.src.slice(0,-4)+'.png'}">
+          <div class="phold p-gl"><span class="ic">&#127758;</span><span class="t">글로벌<br>판매·현지화</span></div>
+          <span class="ep">EP.04</span><span class="up done">GLOBAL</span>
+        </div>
+        <div class="bd">
+          <div class="genre">해외 판매·진출 · 채널 현지화</div>
+          <h3>K-pop 스타일링 글로벌 커머스 ‘fastar’</h3>
+          <div class="org">쏘영 · 팀 4인(기획·마케팅) · 2021–2022</div>
+          <div class="desc">국내 상품을 대만·동남아·미국에 판매. ‘K-pop 스타일링’을 공통 축으로 두되 각국 채널에 맞춰 콘텐츠·광고를 현지화.</div>
+          <div class="metrow">
+            <div class="m"><div class="mv"><span class="u">3개국</span></div><div class="mk">판매</div></div>
+            <div class="m"><div class="mv"><span class="u">2%대</span></div><div class="mk">전환율</div></div>
+            <span class="go">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- EP5 Girog -->
+      <a class="card" href="girog.html">
+        <div class="thumb">
+          <img class="thumbimg" src="img/thumb-girog.jpg" alt="기로그 창업" loading="lazy" onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.src.slice(0,-4)+'.png'}">
+          <div class="phold p-girog"><span class="ic">&#127868;</span><span class="t">육아 기록<br>버티컬 창업</span></div>
+          <span class="ep">EP.05</span><span class="up done">FOUNDER</span>
+        </div>
+        <div class="bd">
+          <div class="genre">창업 · 프로덕트/BM</div>
+          <h3>육아 기록 버티컬 창업 &amp; 피벗 — ‘기로그’</h3>
+          <div class="org">쏘영 · 창업 · 2024</div>
+          <div class="desc">범용 기록앱을 사용 데이터 분석으로 ‘성장 확인·안심’ 버티컬로 피벗. 유저의 진짜 니즈를 재정의한 0→1.</div>
+          <div class="metrow">
+            <div class="m"><div class="mv"><span class="u">66.2%</span></div><div class="mk">리텐션</div></div>
+            <div class="m"><div class="mv">E2E</div><div class="mk">전 과정</div></div>
+            <span class="go">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- EP6 Scoring -->
+      <a class="card" href="scoring.html">
+        <div class="thumb">
+          <img class="thumbimg" src="img/thumb-scoring.jpg" alt="입점 판별 모델" loading="lazy" onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.src.slice(0,-4)+'.png'}">
+          <div class="phold p-scoring"><span class="ic">&#128202;</span><span class="t">입점 판별<br>스코어링</span></div>
+          <span class="ep">EP.06</span><span class="up done">DATA</span>
+        </div>
+        <div class="bd">
+          <div class="genre">데이터 모델 · 의사결정</div>
+          <h3>감을 정량화한 브랜드 입점 판별 모델</h3>
+          <div class="org">이랜드 그룹 온라인 · 키디키디 · 2025</div>
+          <div class="desc">감에 의존하던 입점 판단을 소셜·수요 데이터 자동 스코어링으로 정량화. 판단의 재현성과 속도를 동시에 확보.</div>
+          <div class="metrow">
+            <div class="m"><div class="mv"><span class="u">+80%</span></div><div class="mk">브랜드 매출</div></div>
+            <div class="m"><div class="mv"><span class="u">+150%</span></div><div class="mk">효율</div></div>
+            <span class="go">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="approach" id="credentials">
+    <div class="sec">
+      <div class="sechd">
+        <div class="l">
+          <div class="k">CREDENTIALS</div>
+          <h2>이력 · 수료</h2>
+          <p>서비스 기획과 창업 역량을 다진 과정들입니다.</p>
+        </div>
+      </div>
+      <div class="credlist">
+        <div class="cred">
+          <div class="cico">&#127891;</div>
+          <div>
+            <div class="corg">과학기술정보통신부</div>
+            <div class="ctitle">i-Corps 실험실 창업 트랙 수료</div>
+            <div class="cdesc">기술·실험실 기반 창업 방법론(고객 발굴·비즈니스 모델 검증) 과정</div>
+          </div>
+        </div>
+        <div class="cred">
+          <div class="cico">&#127891;</div>
+          <div>
+            <div class="corg">D.CAMP(디캠프)</div>
+            <div class="ctitle">살롱 HCI Lab 과정 수료</div>
+            <div class="cdesc">HCI·사용자 경험(UX) 설계 심화 과정</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fbrand"><span class="mk">심</span>심소연 · Soyun Shim</div>
+    <p>Service Planning &amp; Product Manager</p>
+    <div class="cta"><a href="mailto:chelsea8218@naver.com">chelsea8218@naver.com</a></div>
+  </footer>
+
+  <script>
+    // 스크롤 등장 애니메이션
+    const io = new IntersectionObserver((es)=>{es.forEach(e=>{
+      if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='translateY(0)';io.unobserve(e.target)}
+    })},{threshold:.12});
+    document.querySelectorAll('.card').forEach((c,i)=>{
+      c.style.opacity=0;c.style.transform='translateY(20px)';
+      c.style.transition='opacity .5s ease '+(i%3*.07)+'s, transform .5s ease '+(i%3*.07)+'s, box-shadow .2s, border-color .2s';
+      io.observe(c);
+    });
+  </script>
+
+</body>
+</html>
