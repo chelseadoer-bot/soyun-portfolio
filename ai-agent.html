@@ -71,7 +71,7 @@
   .ins.key h4{color:#00753A}
 
   /* research stats */
-  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:14px}
+  .rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:14px}
   .rst{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:15px 14px;box-shadow:var(--shadow);text-align:center}
   .rst .rv{font-size:23px;font-weight:800;color:var(--accent);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
   .rst .rk{font-size:11.5px;font-weight:700;color:var(--ink2);margin-top:6px}
@@ -170,25 +170,24 @@
   <div class="mast">
     <div class="eyebrow">AI Search Service · 키디키디 아이그라운드 <span class="gray">· 진행 중</span></div>
     <h1>육아 상품을 찾아주는<br>키디키디 AI 검색 서비스</h1>
-    <p class="sub">직접 검색해도 원하는 상품이 안 나오던 키디키디 통합검색을, <b>부모가 대화로 물으면 진짜 리뷰로 '확신'을 주는</b> AI 검색 서비스(코드명 키둥이 · 서비스명 아이그라운드)로 재설계한 프로젝트. <b>문제 정의 → VOC 리서치 → 인사이트 → 화면 설계 → 개발·데이터 협업</b>까지 전 과정을 주도했습니다.</p>
+    <p class="sub">직접 검색해도 원하는 상품이 안 나오던 키디키디 통합검색을, <b>부모가 대화로 묻고 리뷰로 확신을 얻는</b> AI 검색 서비스(코드명 키둥이 · 서비스명 아이그라운드)로 재설계한 프로젝트. <b>문제 정의 → VOC 리서치 → 인사이트 → 화면·정책 설계 → 개발·데이터 협업</b>까지 전 과정을 주도했습니다.</p>
     <div class="meta">
       <span><b>소속</b> 이랜드 그룹 온라인 · 키디키디</span>
       <span><b>기간</b> 2025.08 – 현재 (진행 중)</span>
       <span><b>역할</b> 서비스 기획(상위+상세) · 리서치 · 협업 리딩</span>
     </div>
-    <div class="tags"><span># AI 검색 서비스</span><span># VOC·UT 리서치</span><span># 리뷰 기반 '확신'</span><span># 나이·성별 개인화</span><span># 대화형 UX</span></div>
+    <div class="tags"><span># AI 검색 서비스</span><span># VOC·고객어 리서치</span><span># 리뷰 기반 확신</span><span># 나이·성별 개인화</span><span># 대화형 UX</span></div>
   </div>
 
   <!-- 01 -->
   <section>
     <div class="slabel"><span class="n">01</span><h2>Problem · 무엇을·왜 만드는가</h2><span class="rule"></span></div>
-    <p class="lead">시작점은 하나의 문장이었습니다 — <b>"직접 검색해도 원하는 상품이 안 나온다."</b> 유아동 카테고리는 상품이 폭증했지만, 기존 키디키디 통합검색은 <b>정확한 상품명을 알아야</b> 도달할 수 있었습니다. 정작 부모는 상품명이 아니라 <b>상황과 고민</b>으로 묻습니다.</p>
+    <p class="lead"><b>"직접 검색해도 원하는 상품이 안 나온다."</b> 유아동 카테고리는 상품이 폭증했지만, 기존 키디키디 통합검색은 <b>정확한 상품명을 알아야</b> 도달할 수 있었습니다. 정작 부모는 상품명이 아니라 <b>상황과 고민</b>으로 묻습니다.</p>
     <div class="card">
       <div class="prow"><div class="k">기존 문제</div><div class="v">직접 검색해도 원하는 상품이 안 나오는 <b>키디키디 통합검색</b> — 목적을 가진 부모일수록 실패 경험이 큼</div></div>
       <div class="prow"><div class="k">목표</div><div class="v">부모의 언어로 묻고 답하는 <b>AI 검색 · 상품 큐레이션(아이그라운드) 구축</b> — 전환·탐색 경험 동시 개선</div></div>
-      <div class="prow"><div class="k">제약</div><div class="v">유아동이라 <b>안전(KC·월령·소형부품)</b>이 최우선이고, LLM이 없는 상품·가격을 지어내면 안 되는 커머스 특성</div></div>
+      <div class="prow"><div class="k">제약</div><div class="v">유아동이라 <b>안전(KC·월령·소형부품)</b>이 최우선이고, 추천은 반드시 <b>판매중인 상품 내에서만</b> 이뤄져야 하는 커머스 특성</div></div>
     </div>
-    <p class="body" style="margin-top:16px">즉 "검색을 더 정확하게"가 아니라, <b>부모가 사고하는 방식(상황·고민)으로 상품을 만나게 하는 새 경험</b>을 정의하는 일이었습니다.</p>
   </section>
 
   <!-- 02 -->
@@ -197,25 +196,23 @@
     <p class="lead">만들기 전에 <b>부모가 상품을 어떻게 말하는지</b>부터 조사했습니다. 정량 VOC와 정성 인터뷰·관찰을 병행해, 숫자만으로는 안 보이는 <b>신뢰가 깨지는 지점</b>을 찾는 데 집중했습니다.</p>
     <div class="rgrid">
       <div class="rst"><div class="rv">30,476</div><div class="rk">VOC 수집</div></div>
-      <div class="rst"><div class="rv">14,781</div><div class="rk">고객 수집</div></div>
+      <div class="rst"><div class="rv">14,781</div><div class="rk">고객어 수집(맘카페)</div></div>
       <div class="rst"><div class="rv">14</div><div class="rk">심층 인터뷰</div></div>
       <div class="rst"><div class="rv">70</div><div class="rk">섀도잉 QC</div></div>
-      <div class="rst"><div class="rv">5</div><div class="rk">UT 테스트</div></div>
-      <div class="rst"><div class="rv">3</div><div class="rk">BP 조사</div></div>
     </div>
-    <p class="body" style="margin-top:18px">특히 <b>부모가 실제로 쓰는 '한 줄'</b>을 뽑아내려고, 상품 자체가 아니라 <b>상품을 남에게 소개하는 순간</b>을 질문했습니다.</p>
+    <p class="body" style="margin-top:18px">상품 자체보다 <b>상품을 남에게 소개하고 추천하는 순간</b>의 말에 집중했습니다.</p>
     <div class="meth">
       <div class="mt"><div class="mn">질문 1</div><h4>추천할 때의 말</h4><p>"아이 옷 하나 골라 친구한테 링크 보낼 때, 뭐라고 써서 보내요?"</p></div>
       <div class="mt"><div class="mn">질문 2</div><h4>팔 때의 한 줄</h4><p>"당근마켓에 아이 옷을 팔면서 한 줄 소개를 쓴다면 뭐라고 쓰시겠어요?"</p></div>
       <div class="mt"><div class="mn">질문 3</div><h4>불신의 순간</h4><p>"LLM 추천을 받아봤다면, 어떤 때 부정확하다고 느끼셨나요?"</p></div>
     </div>
-    <p class="body" style="margin-top:14px">이 질문들이 다음 인사이트의 결정적 단서가 됐습니다 — 부모가 서로에게 상품을 건넬 때 붙이는 말은 스펙이 아니라 <b>"이건 믿고 사도 돼"라는 확신</b>이었습니다.</p>
+    <p class="body" style="margin-top:14px">부모가 서로에게 상품을 건넬 때 붙이는 말은 스펙이 아니라 <b>"이건 믿고 사도 돼"라는 확신</b>이었습니다.</p>
   </section>
 
   <!-- 03 -->
   <section>
     <div class="slabel"><span class="n">03</span><h2>Insight · 육아 큐레이션이라 달랐던 것</h2><span class="rule"></span></div>
-    <p class="lead">일반적인 AI 상품검색과 <b>결정적으로 달랐던 지점</b>이 여기서 드러났습니다. 처음의 가정은 틀렸고, 그걸 뒤집은 게 이 프로젝트의 핵심입니다.</p>
+    <p class="lead">처음 가정은 "상품만 잘 찾으면 된다"였습니다. 그 가정이 틀렸고, 이를 뒤집은 것이 일반적인 AI 상품검색과 갈린 지점이자 이 프로젝트의 핵심입니다.</p>
     <div class="ins">
       <div class="num">1</div>
       <h4>"AI 상품검색이니까 상품만 잘 찾으면 된다"고 생각했다 — 그런데 부모들은 오히려 <b>"광고 같다"</b>고 했다</h4>
@@ -245,7 +242,6 @@
       <div class="rq">이유식을 흘려도 잘 닦여서 걱정 없었어요 — 라는 실제 후기를 근거로, 세척이 쉬운 제품을 확신과 함께 추천</div>
       <div class="rc">확신 설계의 예 — 스펙("방수")이 아니라, 같은 상황을 겪은 부모의 후기 한 줄로 안심을 전달</div>
     </div>
-    <p class="body" style="margin-top:16px"><b>솔직하게 남긴 한계.</b> 초기엔 선택 가이드 안에서 <b>사용자별 개인화가 부족</b>했습니다 — 나이·성별이 충분히 반영되지 않아 "내 얘기" 같지 않았습니다. 이를 <b>키디 크루 후기와 브랜드별 사이즈 리뷰에서 나이를 역추정</b>해 큐레이션에 반영하는 방식으로 보강했습니다.</p>
   </section>
 
   <!-- 05 -->
@@ -283,7 +279,7 @@
 
   <!-- 06 -->
   <section>
-    <div class="slabel"><span class="n">06</span><h2>How it works · 확신의 근거가 된 뒷단</h2><span class="rule"></span></div>
+    <div class="slabel"><span class="n">06</span><h2>How it works · 확신을 뒷받침한 데이터 구조</h2><span class="rule"></span></div>
     <p class="lead">"확신"은 화면 카피가 아니라 <b>데이터 구조</b>에서 나옵니다. 개발·데이터 부서와 협업해, 큐레이션이 신뢰를 담보하도록 세 가지 원칙을 뒷단에 심었습니다.</p>
     <div class="meth">
       <div class="mt"><div class="mn">환각 차단</div><h4>실재 상품만 노출</h4><p>LLM은 상품·가격·재고를 생성하지 않음. 상품은 <b>하이브리드 검색(RAG)</b>이 찾고, LLM은 설명·확신만 — 없는 걸 지어내지 않음</p></div>
@@ -312,11 +308,11 @@
     </div>
     <div class="take">
       <div class="lbl">정확한 검색이 아니라, 확신</div>
-      <p>육아 커머스에서 AI의 성패는 <b>"얼마나 잘 찾느냐"가 아니라 "부모에게 확신을 주느냐"</b>였습니다. 상품을 노출하면 광고가 되고, <b>먼저 써본 부모의 진짜 후기와 내 아이 맞춤을 얹으면 신뢰</b>가 됩니다. AI는 수단이었고, 진짜 설계는 <b>불안한 부모에게 '사도 된다'는 확신을 어떻게 만들 것인가</b>였습니다.</p>
+      <p>육아 커머스에서 AI의 성패는 <b>"얼마나 잘 찾느냐"가 아니라 "부모에게 확신을 주느냐"</b>였습니다. 상품만 나열하면 광고처럼 보이고, <b>먼저 써본 부모의 후기와 내 아이 맞춤 정보를 얹으면 신뢰</b>가 됩니다. AI는 수단이었고, 진짜 과제는 <b>불안한 부모에게 '사도 된다'는 확신을 만드는 일</b>이었습니다.</p>
     </div>
   </section>
 
-  <footer>키디키디 AI 검색 서비스(아이그라운드) · 문제 정의 → VOC 리서치 → '확신' 인사이트 → 화면·협업 · 진행 중 프로젝트(오픈 전 지표)</footer>
+  <footer>키디키디 AI 검색 서비스(아이그라운드) · 문제 정의 → VOC 리서치 → 인사이트 → 화면·정책·협업 · 진행 중(오픈 전 지표)</footer>
 
 </div>
 </body>
